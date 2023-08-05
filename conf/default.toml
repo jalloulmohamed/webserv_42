@@ -1,0 +1,168 @@
+[[server]]
+    port = 8010
+    host = "127.0.0.1"
+    server_name = "webserv.com" "ccc.com"
+    
+# this is a comment skip it
+    client_max_body_size = "1G"
+
+    [[server.error_page]]
+        413 = "errors/index_400.html"
+		401 = "errors/index_401.html"
+		403 = "errors/index_403.html"
+		404 = "errors/index_404.html"
+
+# this location will redirect you to the url.
+
+    [[server.location]]
+        uri = "/redirecting_mjalloul"
+        return = "301 https://github.com/jalloulmohamed"
+    
+
+    [[server.location]]
+        uri = "/redirecting_rel-hach"
+        return = "301 https://github.com/Rel-hach"
+
+    [[server.location]]
+        uri = "/redirecting_fael-bou"
+        return = "301 https://github.com/fatimzehraa"
+
+    [[server.location]]
+        uri = "/"
+		root = "www/index.html"
+        allow_methods = ["GET"]
+    
+    [[server.location]]
+        uri = "/uploading"
+		root = "www/upload"
+        index = ["index.html"]
+        allow_methods = ["POST", "DELETE"]
+		post_module = "enable"
+        delete_module = "enable"
+    
+    [[server.location]]
+        uri = "/website1"
+        allow_methods = ["GET", "POST"]
+        index = ["index.html"]
+        root = "www/simplywebsite"
+    
+    [[server.location]]
+        uri = "/website"
+        allow_methods = ["GET", "POST"]
+        index = ["index.html","video.html","contact.html"]
+        root = "www/fullywebsite"
+
+    [[server.location]]
+        uri = "/vidio"
+		root = "www/testAutoIndex/toto.mp4"
+        allow_methods = ["GET"]
+
+    [[server.location]]
+        uri = "/image"
+		root = "www/testAutoIndex/image.jpg"
+        allow_methods = ["GET"]
+    
+    [[server.location]]
+       uri = "/cgi_php"
+       cgi_extension = ".php"
+       root = src/cgi/file.php
+       allow_methods = ["GET", "POST"]
+    
+    [[server.location]]
+       uri = "/auto"
+       root = www/testAutoIndex
+       allow_methods = ["GET"]
+       autoindex = "ON"
+
+    [[server.location]]
+       uri = "/cgi_python"
+       cgi_extension = ".py"
+       root = src/cgi/file.py
+       allow_methods = ["GET","POST"]
+    
+    [[server.location]]
+       uri = "/cgi_cookies"
+       cgi_extension = ".php"
+       root = "src/cgi/cookies.php"
+       allow_methods = ["GET","POST"]
+
+[[server]]
+    port = 8000 9000 
+    host = "127.0.0.1"
+    server_name = "webserv1.com" 
+    client_max_body_size = "2G"
+
+       [[server.error_page]]
+        401 = "/errors/index_401.html"
+        403 = "/errors/index_403.html"
+        501 = "/errors/index_501.html"
+        500 = "/errors/index_500.html"
+        502 = "/errors/index_502.html"
+        503 = "/errors/index_503.html"
+        504 = "/errors/index_504.html"
+
+
+    [[server.location]]
+        uri = "/redirecting_mjalloul"
+        return = "301 https://github.com/jalloulmohamed"
+
+    [[server.location]]
+        uri = "/redirecting_rel-hach"
+        return = 301 https://github.com/Rel-hach
+
+    [[server.location]]
+        uri = "/redirecting_fael-bou"
+        return = "301 https://github.com/fatimzehraa"
+
+    [[server.location]]
+        uri = "/"
+		root = "www/index.html"
+        allow_methods = ["GET"]
+    
+    [[server.location]]
+        uri = "/uploading"
+		root = "www/upload"
+        index = ["index.html"]
+        allow_methods = ["GET", "POST", "DELETE"]
+		post_module = "enable"
+        delete_module = "enable"
+    
+    [[server.location]]
+        uri = "/website1"
+        allow_methods = ["GET", "POST"]
+        index = ["index.html"]
+        root = "www/simplywebsite"
+    
+    [[server.location]]
+        uri = "/website"
+        allow_methods = ["GET", "POST"]
+        index = ["index.html","video.html","contact.html"]
+        root = "www/fullywebsite"
+
+    [[server.location]]
+        uri = "/vidio"
+		root = "www/testAutoIndex/toto.mp4"
+        allow_methods = ["GET"]
+
+    [[server.location]]
+        uri = "/image"
+		root = "www/testAutoIndex/image.jpg"
+        allow_methods = ["GET"]
+    
+    [[server.location]]
+       uri = "/cgi_php"
+       cgi_extension = ".php"
+       root = src/cgi/file.php
+       allow_methods = ["GET", "POST"]
+
+    [[server.location]]
+       uri = "/cgi_python"
+       cgi_extension = ".py"
+       root = src/cgi/file.py
+       allow_methods = ["GET","POST"]
+    
+    [[server.location]]
+       uri = "/cgi_cookies"
+       cgi_extension = ".php"
+       root = "src/cgi/cookies.php"
+       allow_methods = ["GET","POST"]

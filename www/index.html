@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Webserv</title>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Geologica:wght@100&family=Roboto:ital,wght@1,300&display=swap' rel='stylesheet'>
+</head>
+<style>
+
+    body{
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+        background-color: #fff;
+        
+        font-family: 'Geologica', sans-serif;
+font-family: 'Roboto', sans-serif;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+    }
+    div  {
+        margin: 10px;
+    }
+    div  a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #264653;
+        border: 1px solid #8d8d8d;
+        border-radius: 4px;
+        color: #fff;
+        text-decoration: none;
+
+        
+    }
+    form input {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #8d8d8d;
+        border-radius: 4px;
+        
+    }
+    .link{   
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .link form input{
+        border:1px solid #8d8d8d;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        text-decoration: none;
+        background-color: #264653;
+        color: #fff;
+        border-radius: 4px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 60px;
+        padding-right: 60px;
+
+        width: 100%;
+        text-align: center;
+        
+    }
+    .btn{
+        background: #264653;
+        border-color:1px solid #a4a4a4;
+        color: #fff;
+    }
+    h1{
+        text-align: center;
+        color: #264653;
+    }
+    .titel {
+        display: flex;
+        margin-top: 30px;
+        color: #e76f51;
+        padding: 10px;
+    }
+    hr{
+        width: 33%;
+        background-color: #a4a4a4;
+        border: 1px solid #ffff;
+    }
+    textarea{
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #8d8d8d;
+        border-radius: 4px;
+    }
+    span{
+        color: #2a9d8f;
+    }
+    .copi{
+        margin-top: 30px;
+        text-align: end;
+        margin-right: 10px;
+        margin-left: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: #c4c4c4;
+    }
+    .copi a{
+        color: #2a9d8f;
+        font-size: 15px ;
+    }
+    .user {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .user img {
+        width: 40px;
+        border-radius: 50px;
+        margin: 10px;
+    
+    }
+</style>
+<body>
+    <div id="cookie" class="user">
+        
+    </div>
+    <h1>webserv <span>1337</span></h1>
+    <div class='titel'>
+        <hr>
+        <label for=''>GET Methode</label>
+        <hr>
+    </div>
+    <div class='link'>
+        <div >
+            <a href="/auto">testAutoIndex</a>
+        </div>
+        <div >
+            <a href="/vidio">Get Video</a>
+        </div>
+        <div >
+            <a href="/image">Get Image</a>
+        </div>
+    </div>
+    <div class='titel'>
+        <hr>
+        <label for=''>POST Methode</label>
+        <hr>
+    </div>
+    <form action='/uploading/file.mp4' method='POST' enctype='multipart/form-data' >
+        <input type='file'  required name='file' accept="video/mp4"  id='' multiple  >
+        <input type='submit' class='btn' value='Upload Vidio'>
+    </form>
+    <form action='/uploading/file.png' method='POST' enctype='multipart/form-data' >
+        <input type='file' required name='file' accept="image/png, image/jpeg"  id='' multiple  >
+        <input type='submit' class='btn' value='Upload Image'>
+    </form>
+    
+    <div class='titel'>
+        <hr>
+        <label for=''>CGI</label>
+        <hr>
+    </div>
+    <form action='/cgi_php' method='GET'  >
+        <input type='text' required name='name'  id='' placeholder='name'>
+        <input type='text' required name='age'  id='' placeholder='age'>
+        <input type='submit' class='btn' value='CGI php'>
+    </form>
+    <form action='/cgi_python'  method='GET'  >
+        <input type='text' required name='name'  id='' placeholder='name'>
+        <input type='text' required name='age'  id='' placeholder='age'>
+        <input type='submit' class='btn' value='CGI php'>
+    </form>
+    <form action='/cgi_cookies' method='GET'  >
+        <input type='text' required name='session-id'  id='' placeholder='First name and last name for generating session ID or token.'>
+        <input type='submit' class='btn' value='Cookies and Session'>
+    </form>
+    <h5 class='copi'>@1337 by  <a href='/redirecting_mjalloul'>mjalloul</a> & <a href='/redirecting_fael-bou'>fael-bou</a> & <a href="/redirecting_rel-hach">rel-hach</a></h5>
+    <script>
+
+            function getCookie(name) {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Check if the cookie starts with the name we are looking for
+                    if (cookie.startsWith(name + '=')) {
+                        // Return the value of the cookie by extracting it from the string
+                        return cookie.substring(name.length + 1);
+                    }
+                }
+                // If the cookie does not exist, return null
+                return null;
+            }
+
+            // Example usage
+            const cookieName = 'session_Id';
+            const value = getCookie(cookieName);
+            if (value !== null) {
+                let codeExample = `<img src="https://xsgames.co/randomusers/assets/avatars/male/${value.length}.jpg" alt="" srcset="">
+                                    <h4>${value}</h4>`;
+                document.getElementById('cookie').innerHTML += codeExample;
+            } else {
+                console.log('Cookie does not exist.');
+            }
+    </script>
+</body>
+</html>
